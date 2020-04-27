@@ -1,7 +1,7 @@
 const express = require("express");
 var path = require("path");
 
-var PORT = process.env.port || 3000;
+var PORT = process.env.Port||3000;
 var app = express();
 
 //data parsing
