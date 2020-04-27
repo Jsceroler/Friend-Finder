@@ -1,7 +1,19 @@
-var mysql = require("express");
+const express = require("express");
 var path = require("path");
 
-//Express
-const app = express();
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.port || 3000;
+var app = express();
 
+//data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+require("./app/routing/apiRoutes.js")(app);
+require("./app/routing/htmlRoutes.js")(app);
+
+
+
+//listener
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
